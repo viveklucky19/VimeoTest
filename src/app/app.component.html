@@ -1,20 +1,59 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="row margintop20px paddingtopbottom15px whitebackground justify-content-around">
+  <div class="col-xs-12">
+    <div class="table-responsive" *ngIf="bankAccountDetails.length">
+      <table class="table table-striped table-hover table-bordered " [mfData]="bankAccountDetails" #mf="mfDataTable"
+        [mfRowsOnPage]="10">
+        <thead>
+          <tr>
+            <th style="width:80px;max-width:80px;">S No.</th>
+            <th style="width:60px;max-width:60px;">
+              <mfDefaultSorter by="AccountNo">Account No</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="Date">Date <i class="fa fa-sort pl-1" aria-hidden="true"></i></mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="TransactionDetails">Transaction Details
+              </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="ValueDate">Value Date <i class="fa fa-sort pl-1" aria-hidden="true"></i>
+              </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="WithdrawalAMT">Withdrawal AMT
+              </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="DepositAMT">Deposit AMT
+              </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="BalanceAMT">Balance AMT <i class="fa fa-sort  pl-1" aria-hidden="true"></i>
+              </mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of mf.data; let i = index;">
+            <td scope="row">{{data.Index}}</td>
+            <td>{{data.AccountNo}}</td>
+            <td>{{data.Date}}</td>
+            <td>{{data.TransactionDetails}}</td>
+            <td>{{data.ValueDate}}</td>
+            <td>{{data.WithdrawalAMT}}</td>
+            <td>{{data.DepositAMT}}</td>
+            <td>{{data.BalanceAMT}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
